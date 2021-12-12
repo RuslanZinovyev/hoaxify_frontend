@@ -48,9 +48,9 @@ export class UserSignupPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h1 className="text-center">Sign Up</h1>
-        <div className="col-12 mb-3">
+      <div className="container col-6">
+        <h1 className="text-center col-6">Sign Up</h1>
+        <div className="col-6 mb-3">
           <label>Display name</label>
           <input
             className="form-control"
@@ -59,7 +59,7 @@ export class UserSignupPage extends React.Component {
             onChange={this.onChangeDisplayName}
           />
         </div>
-        <div className="col-12 mb-3">
+        <div className="col-6 mb-3">
           <label>Username</label>
           <input
             className="form-control"
@@ -68,7 +68,7 @@ export class UserSignupPage extends React.Component {
             onChange={this.onChangeUserName}
           />
         </div>
-        <div className="col-12 mb-3">
+        <div className="col-6 mb-3">
           <label>Password</label>
           <input
             className="form-control"
@@ -78,7 +78,7 @@ export class UserSignupPage extends React.Component {
             type="password"
           />
         </div>
-        <div className="col-12 mb-3">
+        <div className="col-6 mb-3">
           <label>Repeat your password</label>
           <input
             className="form-control"
@@ -88,7 +88,7 @@ export class UserSignupPage extends React.Component {
             type="password"
           />
         </div>
-        <div className="text-center">
+        <div className="text-left">
           <button
             className="btn btn-primary"
             onClick={this.onClickSignup}
