@@ -253,7 +253,7 @@ describe("UserSignupPage", () => {
       expect(spinner).not.toBeInTheDocument();
     });
 
-    xit("displays validation error for displayName when error is received for the field", async () => {
+    it("displays validation error for displayName when error is received for the field", async () => {
       const actions = {
         postSignup: jest.fn().mockRejectedValue({
           response: {
@@ -268,11 +268,9 @@ describe("UserSignupPage", () => {
       const { queryByText } = setupForSubmit({ actions });
       fireEvent.click(button);
 
-      const errorMessage = await waitFor(() =>
-        queryByText("Display name cannot be null")
-      );
-
-      expect(errorMessage).toBeInTheDocument();
+      await waitFor(() => {
+        expect(queryByText("Display name cannot be null")).toBeInTheDocument();
+      });
     });
 
     it("enables the signup button when password and repeat password have same value", () => {
