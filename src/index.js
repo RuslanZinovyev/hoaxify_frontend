@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { UserSignupPage } from "./pages/UserSignupPage";
+import { LoginPage } from "./pages/LoginPage";
 import * as apiCalls from "./api/apiCalls";
 
 const actions = {
@@ -12,7 +13,7 @@ const actions = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserSignupPage actions={actions} />
+    <LoginPage actions={actions} />
   </React.StrictMode>,
   document.getElementById("root")
 );
