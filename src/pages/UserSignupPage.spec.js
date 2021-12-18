@@ -209,7 +209,7 @@ describe("UserSignupPage", () => {
       expect(spinner).toBeInTheDocument();
     });
 
-    it("hide spinner after api call finishes successfully", async () => {
+    it("hides spinner after api call finishes successfully", async () => {
       const actions = {
         postSignup: mockAsyncDelayed(),
       };
@@ -227,7 +227,7 @@ describe("UserSignupPage", () => {
       expect(spinner).not.toBeInTheDocument();
     });
 
-    it("hide spinner after api call finishes with error", async () => {
+    it("hides spinner after api call finishes with error", async () => {
       const actions = {
         postSignup: jest.fn().mockImplementation(() => {
           return new Promise((resolve, reject) => {
@@ -241,7 +241,6 @@ describe("UserSignupPage", () => {
       };
 
       const { queryByText } = setupForSubmit({ actions });
-
       fireEvent.click(button);
 
       await waitForElementToBeRemoved(() => queryByText("Loading..."), {
@@ -249,7 +248,6 @@ describe("UserSignupPage", () => {
       });
 
       const spinner = queryByText("Loading...");
-
       expect(spinner).not.toBeInTheDocument();
     });
 
