@@ -73,7 +73,7 @@ export class UserSignupPage extends React.Component {
 
   render() {
     return (
-      <div className="container col-6">
+      <div className="container">
         <h1 className="text-center col-6">Sign Up</h1>
         <div className="col-6 mb-3">
           <Input
