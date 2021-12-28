@@ -2,7 +2,7 @@ import React from "react";
 import Input from "../components/Input";
 import ButtonWithProgress from "../components/ButtonWithProgress";
 import { connect } from "react-redux";
-import * as authActions from "../redux/authAction";
+import * as authActions from "../redux/authActions";
 
 export class LoginPage extends React.Component {
   state = {
