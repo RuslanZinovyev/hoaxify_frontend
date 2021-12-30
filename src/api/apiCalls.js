@@ -5,13 +5,17 @@ export const signup = (user) => {
 };
 
 export const login = (user) => {
-  return axios.post("/api/1.0/login", {}, { auth: user });
+  return axios.post(
+    "/api/1.0/login",
+    {},
+    { auth: { username: user.userName, password: user.password } }
+  );
 };
 
-export const setAuthorizationHeader = ({ username, password, isLoggedIn }) => {
+export const setAuthorizationHeader = ({ userName, password, isLoggedIn }) => {
   if (isLoggedIn) {
     axios.defaults.headers.common["Authorization"] = `Basic ${btoa(
-      username + ":" + password
+      userName + ":" + password
     )}`;
   } else {
     delete axios.defaults.headers.common["Authorization"];
