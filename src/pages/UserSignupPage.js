@@ -7,7 +7,7 @@ import * as authActions from "../redux/authActions";
 export class UserSignupPage extends React.Component {
   state = {
     displayName: "",
-    userName: "",
+    username: "",
     password: "",
     passwordRepeat: "",
     pendingApiCall: false,
@@ -22,11 +22,11 @@ export class UserSignupPage extends React.Component {
     this.setState({ displayName: value, errors });
   };
 
-  onChangeUserName = (event) => {
+  onChangeUsername = (event) => {
     const value = event.target.value;
     const errors = { ...this.state.errors };
-    delete errors.userName;
-    this.setState({ userName: value, errors });
+    delete errors.username;
+    this.setState({ username: value, errors });
   };
 
   onChangePassword = (event) => {
@@ -52,7 +52,7 @@ export class UserSignupPage extends React.Component {
 
   onClickSignup = () => {
     const user = {
-      userName: this.state.userName,
+      username: this.state.username,
       displayName: this.state.displayName,
       password: this.state.password,
     };
@@ -91,10 +91,10 @@ export class UserSignupPage extends React.Component {
           <Input
             label="Username"
             placeholder="Your username"
-            value={this.state.userName}
-            onChange={this.onChangeUserName}
-            hasError={this.state.errors.userName && true}
-            error={this.state.errors.userName}
+            value={this.state.username}
+            onChange={this.onChangeUsername}
+            hasError={this.state.errors.username && true}
+            error={this.state.errors.username}
           />
         </div>
         <div className="col-6 mb-3">

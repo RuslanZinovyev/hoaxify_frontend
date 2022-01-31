@@ -5,6 +5,15 @@ import App from "./App";
 import { Provider } from "react-redux";
 import axios from "axios";
 import configureStore from "../redux/configureStore";
+import * as apiCalls from "../api/apiCalls";
+
+apiCalls.listUsers = jest.fn().mockResolvedValue({
+  data: {
+    content: [],
+    number: 0,
+    size: 3,
+  },
+});
 
 beforeEach(() => {
   localStorage.clear();
@@ -143,12 +152,12 @@ describe("App", () => {
   it("displays My Profile on TopBar after signup success", async () => {
     const { queryByPlaceholderText, container, queryByText } = setup("/signup");
     const displayNameInput = queryByPlaceholderText("Your display name");
-    const userNameInput = queryByPlaceholderText("Your username");
+    const usernameInput = queryByPlaceholderText("Your username");
     const passwordInput = queryByPlaceholderText("Your password");
     const passwordRepeatInput = queryByPlaceholderText("Repeat your password");
 
     fireEvent.change(displayNameInput, changeEvent("display1"));
-    fireEvent.change(userNameInput, changeEvent("user1"));
+    fireEvent.change(usernameInput, changeEvent("user1"));
     fireEvent.change(passwordInput, changeEvent("P4ssword"));
     fireEvent.change(passwordRepeatInput, changeEvent("P4ssword"));
 
@@ -290,3 +299,5 @@ describe("App", () => {
     expect(axiosAuthorization).toBeFalsy();
   });
 });
+
+console.error = () => {};

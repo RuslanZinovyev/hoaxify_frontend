@@ -26,9 +26,9 @@ describe("UserSignupPage", () => {
 
     it("has input for username", () => {
       const { queryByPlaceholderText } = render(<UserSignupPage />);
-      const userNameInput = queryByPlaceholderText("Your username");
+      const usernameInput = queryByPlaceholderText("Your username");
 
-      expect(userNameInput).toBeInTheDocument();
+      expect(usernameInput).toBeInTheDocument();
     });
 
     it("has input for password", () => {
@@ -78,7 +78,7 @@ describe("UserSignupPage", () => {
 
     let button,
       displayNameInput,
-      userNameInput,
+      usernameInput,
       passwordInput,
       passwordRepeatInput;
 
@@ -88,12 +88,12 @@ describe("UserSignupPage", () => {
       const { container, queryByPlaceholderText } = rendered;
 
       displayNameInput = queryByPlaceholderText("Your display name");
-      userNameInput = queryByPlaceholderText("Your username");
+      usernameInput = queryByPlaceholderText("Your username");
       passwordInput = queryByPlaceholderText("Your password");
       passwordRepeatInput = queryByPlaceholderText("Repeat your password");
 
       fireEvent.change(displayNameInput, changeEvent("my-display-name"));
-      fireEvent.change(userNameInput, changeEvent("my-user-name"));
+      fireEvent.change(usernameInput, changeEvent("my-user-name"));
       fireEvent.change(passwordInput, changeEvent("P4ssword"));
       fireEvent.change(passwordRepeatInput, changeEvent("P4ssword"));
 
@@ -121,13 +121,13 @@ describe("UserSignupPage", () => {
       expect(displayNameInput).toHaveValue("my-display-name");
     });
 
-    it("sets the userName value into state", () => {
+    it("sets the username value into state", () => {
       const { queryByPlaceholderText } = render(<UserSignupPage />);
-      const userNameInput = queryByPlaceholderText("Your username");
+      const usernameInput = queryByPlaceholderText("Your username");
 
-      fireEvent.change(userNameInput, changeEvent("my-user-name"));
+      fireEvent.change(usernameInput, changeEvent("my-user-name"));
 
-      expect(userNameInput).toHaveValue("my-user-name");
+      expect(usernameInput).toHaveValue("my-user-name");
     });
 
     it("sets the password value into state", () => {
@@ -175,7 +175,7 @@ describe("UserSignupPage", () => {
       fireEvent.click(button);
 
       const expectedUserObject = {
-        userName: "my-user-name",
+        username: "my-user-name",
         displayName: "my-display-name",
         password: "P4ssword",
       };
@@ -335,7 +335,7 @@ describe("UserSignupPage", () => {
           response: {
             data: {
               validationErrors: {
-                userName: "Username cannot be null",
+                username: "Username cannot be null",
               },
             },
           },
@@ -345,7 +345,7 @@ describe("UserSignupPage", () => {
       fireEvent.click(button);
 
       await waitFor(() => queryByText("Username cannot be null"));
-      fireEvent.change(userNameInput, changeEvent("name updated"));
+      fireEvent.change(usernameInput, changeEvent("name updated"));
       const errorMessage = queryByText("Username cannot be null");
 
       expect(errorMessage).not.toBeInTheDocument();

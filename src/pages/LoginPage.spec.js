@@ -18,9 +18,9 @@ describe("LoginPage", () => {
 
     it("has input for username", () => {
       const { queryByPlaceholderText } = render(<LoginPage />);
-      const usernamInput = queryByPlaceholderText("Your username");
+      const usernameInput = queryByPlaceholderText("Your username");
 
-      expect(usernamInput).toBeInTheDocument();
+      expect(usernameInput).toBeInTheDocument();
     });
 
     it("has input for password", () => {
