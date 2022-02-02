@@ -15,7 +15,7 @@ const UserListItem = (props) => {
         height="32"
         src={imageSource}
       />
-      <span className="pl-3">{`${props.user.displayName}@${props.user.username}`}</span>
+      <span className="pl-2">{`${props.user.displayName}@${props.user.username}`}</span>
     </div>
   );
 };
